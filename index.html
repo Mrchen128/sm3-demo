@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./sm.js"></script>
+</head>
+<body>
+  <input type="file" name="" id="fileInput">
+  <script>
+    fileInput.addEventListener('change',async (e)=>{
+      let file = e.target.files[0];
+      let sm3 = new SM3();
+      sm3.on(()=>{
+        console.log(sm3.hash);
+      })
+      let hash = await sm3.genHash(file);
+      console.log(hash);
+    })
+  </script>
+</body>
+</html>
